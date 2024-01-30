@@ -32,9 +32,7 @@ RUN apt-get update && \
     	openjdk-21-jdk-headless && \
     apt-get clean
 
-RUN curl -L https://github.com/CycloneDX/cdxgen/releases/download/v9.11.4/cdxgen > cdxgen
+RUN apt install nodejs -y && \
+    apt install npm -y
 
-RUN git clone https://github.com/Albertoimpl/hello-java21.git
-
-RUN chmod +x cdxgen && mv cdxgen /usr/local/bin
-
+COPY . /workspace
